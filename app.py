@@ -1,20 +1,20 @@
-from flask import Flask ,render_template,request
+from flask import Flask, render_template, request
 
 import pickle
 import numpy as np
 
 
-popular_df = pickle.load(open('popular.p','rb'))
-pt = pickle.load(open('pt.p','rb'))
-books = pickle.load(open('books.p','rb'))
-similarity_scores = pickle.load(open('similarity_scores.p','rb'))
+popular_df = pickle.load(open('popular.p', 'rb'))
+pt = pickle.load(open('pt.p', 'rb'))
+books = pickle.load(open('books.p', 'rb'))
+similarity_scores = pickle.load(open('similarity_scores.p', 'rb'))
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template('index.html',
-                           book_name = list(popular_df['Book-Title'].values),
+                           book_name=list(popular_df['Book-Title'].values),
                            author=list(popular_df['Book-Author'].values),
                            image=list(popular_df['Image-URL-M'].values),
                            votes=list(popular_df['num_ratings'].values),
