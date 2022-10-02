@@ -15,8 +15,5 @@ notebook==6.4.12
 numpy
 pandas
 requests==2.27.1
-scikit-learn==1.1.1
-scipy==1.9.0
-sklearn==0.0
 urllib3==1.26.9
 gunicorn
