@@ -12,10 +12,6 @@ similarity_scores = pickle.load(open('similarity_scores.p', 'rb'))
 
 app = Flask(__name__)
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
 @app.route('/')
 def index():
     return render_template('index.html',
@@ -25,6 +21,11 @@ def index():
                            votes=list(popular_df['num_ratings'].values),
                            ratings=list(popular_df['avg_rating'].values)
                            )
+                           
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 @app.route('/recommend')
 def recommend_ui():
     return render_template('recommend.html')
