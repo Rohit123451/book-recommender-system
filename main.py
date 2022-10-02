@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, send_from_directory, request
 import os
-
+from flask import render_template
 import pickle
 import numpy as np
 
